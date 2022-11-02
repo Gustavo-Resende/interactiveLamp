@@ -5,8 +5,8 @@ let lampOn = document.getElementById('img-on')
 let lampBrake = document.getElementById('img-brake')
 
 function interruptor() {
-
-    ligar.onclick = function on(){
+    
+    let online = ligar.onclick = function on(){
         lampOn.removeAttribute('hidden'),
         lampOff.setAttribute('hidden', '')
         lampBrake.setAttribute('hidden', '')
@@ -16,15 +16,24 @@ function interruptor() {
         }
     }
 
-    desligar.onclick = function off(){
+    let offline = desligar.onclick = function off(){
         lampOff.removeAttribute('hidden'),
         lampOn.setAttribute('hidden', '')
         lampBrake.setAttribute('hidden', '')
+        lampOff.onclick = function brake(){
+            lampOff.setAttribute('hidden', '')
+            lampBrake.removeAttribute('hidden')
+        }
+    }
+    
+    let enter = lampOff.onmouseenter = function onMouse(){
+        lampOn.removeAttribute('hidden')
+        lampOff.setAttribute('hidden', '')
     }
 
-    lampOff.onclick = function brake(){
-        lampOff.setAttribute('hidden', 'hidden')
-        lampBrake.removeAttribute('hidden')
+    let out = lampOn.onmouseout = function offMouse(){
+        lampOn.setAttribute('hidden', '')
+        lampOff.removeAttribute('hidden')
     }
 }
 
