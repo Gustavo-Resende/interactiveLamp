@@ -1,3 +1,4 @@
+//script
 let ligar = document.getElementById('on')
 let desligar = document.getElementById('off')
 let lampOff = document.getElementById('img-off')
