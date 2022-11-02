@@ -6,6 +6,11 @@ let lampBrake = document.getElementById('img-brake')
 
 function interruptor() {
     
+    lampOff.onclick = function(){
+        lampOff.setAttribute('hidden', '')
+        lampBrake.removeAttribute('hidden')
+    }
+
     let online = ligar.onclick = function on(){
         lampOn.removeAttribute('hidden'),
         lampOff.setAttribute('hidden', '')
@@ -17,14 +22,16 @@ function interruptor() {
     }
 
     let offline = desligar.onclick = function off(){
-        lampOff.removeAttribute('hidden'),
         lampOn.setAttribute('hidden', '')
         lampBrake.setAttribute('hidden', '')
-        lampOff.onclick = function brake(){
-            lampOff.setAttribute('hidden', '')
+        lampOff.removeAttribute('hidden')
+        lampOff.onclick = function (){
+            lampOn.setAttribute('hidden', '')
             lampBrake.removeAttribute('hidden')
+            lampOff.setAttribute('hidden', '')
         }
     }
+
 }
 
 interruptor()
