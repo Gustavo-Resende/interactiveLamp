@@ -1,37 +1,38 @@
-let ligar = document.getElementById('on')
-let desligar = document.getElementById('off')
-let lampOff = document.getElementById('img-off')
-let lampOn = document.getElementById('img-on')
-let lampBrake = document.getElementById('img-brake')
+const ligar = document.getElementById('on');
+const desligar = document.getElementById('off');
+const lamp = document.getElementById('lamp')
 
-function interruptor() {
-
-    lampOff.onclick = function(){
-        lampOff.setAttribute('hidden', '')
-        lampBrake.removeAttribute('hidden')
-    }
-
-    ligar.onclick = function on(){
-        lampOn.removeAttribute('hidden'),
-        lampOff.setAttribute('hidden', '')
-        lampBrake.setAttribute('hidden', '')
-        lampOn.onclick = function (){
-            lampOn.setAttribute('hidden', '')
-            lampBrake.removeAttribute('hidden')
-        }
-    }
-
-    desligar.onclick = function off(){
-        lampOn.setAttribute('hidden', '')
-        lampBrake.setAttribute('hidden', '')
-        lampOff.removeAttribute('hidden')
-        lampOff.onclick = function (){
-            lampOn.setAttribute('hidden', '')
-            lampBrake.removeAttribute('hidden')
-            lampOff.setAttribute('hidden', '')
-        }
-    }
-
+function isLampBroken() {
+    return lamp.src.indexOf ('brake') > -1
 }
 
-interruptor()
+function lampOn() {
+    if (!isLampBroken () ) {
+        lamp.src = 'assets/light.jpg'
+    }
+}
+
+function lampOff() {
+    if (!isLampBroken () ) {
+        lamp.src = 'assets/off.jpg'
+    }
+}
+
+function lampBrake() {
+    lamp.src = 'assets/brake.jpg'
+}
+
+ligar.addEventListener ('click', lampOn)
+desligar.addEventListener ('click', lampOff)
+lamp.addEventListener ('mouseover', lampOn)
+lamp.addEventListener ('mouseleave', lampOff)
+lamp.addEventListener ('dblclick', lampBrake)
+
+let clicksOn = 0;
+
+ligar.onclick = function() {
+    clicksOn++;
+    if(clicksOn > 3){
+        lamp.src = 'assets/brake.jpg'
+    }
+}
