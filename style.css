@@ -51,6 +51,10 @@ button:first-child{
     background-color: green;
 }
 
-button:last-child{
+button:nth-child(2) {
     background-color: #ff0000;
+}
+
+button:nth-child(3) {
+    background-color: orange;
 }
