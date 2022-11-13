@@ -5,6 +5,10 @@ Projeto feito com HTML, CSS e JavaScript. É uma lâmpada que interage com o usu
 
 O link acima irá te direcionar para uma página onde poderá testar o funcionamento do projeto através das seguintes ações:
 
+<p align="center">
+    <img alt="demonstração do projeto" src="https://raw.githubusercontent.com/danilotc/interactiveLamp/edit_readme/assets/example.gif" >
+</p>
+
 **Acender lâmpada:**
 - Clicar no botão "LIGAR" ou
 - Passar o cursor do mouse sobre a lâmpada.
